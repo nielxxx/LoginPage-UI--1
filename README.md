@@ -1,16 +1,15 @@
-# flutter_application_1
 
-A new Flutter project.
+# LOGIN PAGE UI USING FLUTTER
 
-## Getting Started
+A simple login page UI using Flutter, see screenshot of the output  down below.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![App Screenshot](https://raw.githubusercontent.com/nielxxx/LoginPage-UI--1/main/lib/img/adasdasdad.PNG)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Acknowledgements
+
+ - [Referrence Playlist](https://youtube.com/playlist?list=PLf-j0Hs0PF3sIyohisAfO-56N_WcTniNt&si=7tppAFtbAiiK7w-u)
+
