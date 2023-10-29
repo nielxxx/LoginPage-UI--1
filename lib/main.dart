@@ -1,96 +1,151 @@
-// ignore_for_file: prefer_const_constructors, unnecessary_this
-
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp (
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: HomePage(),
+  )
+);
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Niel App',
-      theme: ThemeData(
-        primarySwatch: Colors.cyan,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        useMaterial3: false,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State <MyHomePage> createState() => MyHomePageState();
-}
-
-class MyHomePageState extends State<MyHomePage> {
-  String text = "";
-
-  void changeText(String text) {
-    this.setState(() {
-      this.text = text;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text('Messaging')),
-      body: Column(children: <Widget>[
-        TextInputWidget(this.changeText),
-        Text(this.text)
-      ]));
-  }
-}
-
-
-class TextInputWidget extends StatefulWidget {
-  final Function(String) callback;
-
-  const TextInputWidget(this.callback, {super.key});
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _TextInputWidgetState createState() => _TextInputWidgetState();
-}
-
-class _TextInputWidgetState extends State<TextInputWidget> {
-  final controller = TextEditingController();
-
-  @override
-  void dispose(){
-    super.dispose();
-    controller.dispose();
-  }
-
-  void click(){
-    widget.callback(controller.text);
-    controller.clear();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return
-      TextField(
-        controller: this.controller,
-        decoration: InputDecoration(
-            prefixIcon: Icon(Icons.message), labelText: "Type a message:", 
-            suffixIcon:IconButton(
-              icon:Icon(Icons.send), 
-              splashColor: Colors.lightBlue,
-              tooltip:"Post message",
-              onPressed: this.click, 
-            )));  
+      body: Container(
+        padding: EdgeInsets.symmetric(vertical: 30),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin:Alignment.topCenter,
+            colors: [
+              Colors.blue[900]!, // Darker shade
+              Colors.blue[800]!, 
+              Colors.blue[400]!,// Lighter shade
+            ]
+          )
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: 80,),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                   Text("Login", style: TextStyle(color: Colors.white, fontSize: 40),),
+                   SizedBox(height: 10,),
+                   Text("Welcome Back", style: TextStyle(color: Colors.white, fontSize: 18),),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60), topRight:  Radius.circular(60))
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(30),
+                  child: Column(
+                    children: <Widget> [
+                      SizedBox(height: 60,),
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow:[BoxShadow(
+                            color: Color.fromRGBO(89, 145, 230, 0.988),
+                            blurRadius: 20,
+                            offset: Offset(0, 10)
+                          )]
+                        ),
+                        child: Column(
+                          children: <Widget> [
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(color: Colors.grey[200]!))
+                              ),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: "Email or Phone Number",
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                  border: InputBorder.none
+                                ),
+                              ),
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(color: Colors.grey[200]!))
+                              ),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: "Password",
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                  border: InputBorder.none
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 40,),
+                      Text("Forgot Password?", style: TextStyle(color: Colors.grey),),
+                      SizedBox(height: 40,),
+                      Container(
+                        height: 50,
+                        margin: EdgeInsets.symmetric(horizontal: 50),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.lightBlue[900]
+                        ),
+                        child: Center(
+                          child: Text("Login", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
+                        ),
+                      ),
+                      SizedBox(height: 50,),
+                      Text("Continue with Social Media", style: TextStyle(color: Colors.grey),),
+                      SizedBox(height: 30,),
+                      Row(
+                        children: <Widget> [
+                          Expanded(
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.blue
+                              ),
+                              child: Center(
+                                child: Text("Facebook", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 30,),
+                          Expanded(
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.black
+                              ),
+                              child: Center(
+                                child: Text("Github", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
